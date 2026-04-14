@@ -1,11 +1,46 @@
+WINDOWS REGISTRY / REJESTR WINDOWS:
+
 1. Artifacts:
-X
+- HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+- HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+- HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+- HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+
 
 2. Queries:
-X
+2.1. :
+  DeviceRegistryEvents
+  | where ActionType == "RegistryValueSet" or ActionType == "RegistryKeyCreated"
+  | where RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\Run" or 
+  RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\RunOnce"
+  //filtering_below_known/legitimate_registry_value_names_samples_put_below
+  | where not (RegistryValueName has_any ("BingWallpaperApp","Jabra Direct",
+  "Docker Desktop","Opera Stable","ADD_YOUR_VALUENAME_HERE!"))
 
-3. Logging/monitoring:
-X
+2.2. 
 
-4. Refs:
-X
+
+
+
+3. Logging/monitoring recommendations:
+- Security Event ID 4657 (A registry value was modified)
+- Security Event ID 4688 (A new process has been created)
+- Sysmon Event ID 1 (Process creation)
+- Sysmon Event ID 12 (RegistryEvent (Object create and delete))
+- Sysmon Event ID 13 (RegistryEvent (Value Set))
+- Sysmon Event ID 14 (RegistryEvent (Key and Value Rename))
+- PowerShell Event ID 4104 (PowerShell Script Block Logging)
+
+
+4. Additional references:
+- https://attack.mitre.org/techniques/T1012/
+- https://www.atomicredteam.io/docs/atomics/T1012
+- https://attack.mitre.org/techniques/T1112/
+- https://www.atomicredteam.io/docs/atomics/T1112
+- https://attack.mitre.org/techniques/T1003/002/
+- https://www.atomicredteam.io/docs/atomics/T1003.002
+- https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+- https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4657
+- https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4688
+- https://www.splunk.com/en_us/blog/security/hunting-for-malicious-powershell-using-script-block-logging.html
+- https://persistence-info.github.io/
