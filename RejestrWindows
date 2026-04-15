@@ -1,6 +1,13 @@
 WINDOWS REGISTRY / REJESTR WINDOWS:
 
 1. ARTIFACTS:
+- HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\ShowJumpView
+- HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppSwitched
+- HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppBadgeUpdated
+- HKCU\SOFTWARE\Microsoft\Terminal Server Client\Servers
+- HKLM\Software\Microsoft\RADAR\HeapLeakDetection\DiagnosedApplications
+- HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
+- HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
 - HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 - HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
 - HKCU\Software\Microsoft\Windows\CurrentVersion\Run
@@ -132,7 +139,17 @@ DeviceRegistryEvents
 
 
 
-4. ADDITIONAL REFERENCES:
+4. LOOK FOR MISCONFIGS IN REGISTRY:
+- HKLM\System\CurrentControlSet\Control\Lsa (DsrmAdminLogonBehavior)
+- HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System (EnableLinkedConnections)
+- HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters (MaxMpxCt)
+- HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer (AlwaysInstallElevated)
+- HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer (AlwaysInstallElevated)
+- HKLM\System\CurrentControlSet\Control\Terminal Server (fDenyTSConnections)
+
+
+
+5. ADDITIONAL REFERENCES:
 - https://attack.mitre.org/techniques/T1012/
 - https://www.atomicredteam.io/docs/atomics/T1012
 - https://attack.mitre.org/techniques/T1112/
