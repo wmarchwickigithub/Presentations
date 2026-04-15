@@ -8,16 +8,7 @@ WINDOWS REGISTRY / REJESTR WINDOWS:
 
 
 
-2. QUERIES:
-DeviceRegistryEvents
-| where ActionType == "RegistryValueSet" or ActionType == "RegistryKeyCreated"
-| where RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\Run" or 
-RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-//filtering_known/legitimate_registry_value_names
-| where not (RegistryValueName has_any ("BingWallpaperApp","Jabra Direct",
-"Docker Desktop","Opera Stable"))
-
-
+2. QUERIES (WRITTEN IN KQL, CAN BE TRANSLATED TO OTHER QUERY LANGUAGES):
 DeviceRegistryEvents
 | where ActionType == "RegistryValueSet" or ActionType == "RegistryKeyCreated"
 | where RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\Run" or 
@@ -25,14 +16,6 @@ RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\RunOnce"
 //filtering_for_often_used_mal_locations
 | where RegistryValueData has_any (@"C:\Windows\Temp", @"C:\Users\Public",
 @"C:\ProgramData", @"%PUBLIC%", @"%APPDATA%", @"%TEMP%")
-
-
-DeviceRegistryEvents
-| where ActionType == "RegistryValueSet" or ActionType == "RegistryKeyCreated"
-| where RegistryKey contains @"\Schedule\TaskCache\Tree"
-//filtering_known/legitimate_registry_key_names
-| where not (RegistryKey has_any ("OneDrive",@"Office ClickToRun Service Monitor",
-@"Windows Defender","Adobe Acrobat Update Task"))
 
 
 DeviceRegistryEvents
@@ -116,6 +99,25 @@ or InitiatingProcessCommandLine has @"/v"
 or InitiatingProcessCommandLine contains "EnableLinkedConnections"
 | where ProcessCommandLine has "1"
 or InitiatingProcessCommandLine has "1"
+
+
+//needs_tuning_in_filtering_section_below_hunting_concept
+DeviceRegistryEvents
+| where ActionType == "RegistryValueSet" or ActionType == "RegistryKeyCreated"
+| where RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\Run" or 
+RegistryKey endswith @"\Software\Microsoft\Windows\CurrentVersion\RunOnce"
+//filtering_known/legitimate_registry_value_names
+| where not (RegistryValueName has_any ("BingWallpaperApp","Jabra Direct",
+"Docker Desktop","Opera Stable"))
+
+
+//needs_tuning_in_filtering_section_below_hunting_concept
+DeviceRegistryEvents
+| where ActionType == "RegistryValueSet" or ActionType == "RegistryKeyCreated"
+| where RegistryKey contains @"\Schedule\TaskCache\Tree"
+//filtering_known/legitimate_registry_key_names
+| where not (RegistryKey has_any ("OneDrive",@"Office ClickToRun Service Monitor",
+@"Windows Defender","Adobe Acrobat Update Task"))
 
 
 
