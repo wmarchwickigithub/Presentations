@@ -58,6 +58,8 @@ InitiatingProcessVersionInfoOriginalFileName == "reg.exe"
 | where ProcessCommandLine contains " save " or
 InitiatingProcessCommandLine contains " save "
 | where ProcessCommandLine has_any (@"\system",
+@"\sam",@"\security") or
+InitiatingProcessCommandLine has_any (@"\system",
 @"\sam",@"\security")
 
 
