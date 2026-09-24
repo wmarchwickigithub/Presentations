@@ -1,10 +1,20 @@
 MONITORING:
--X
+-https://github.com/olafhartong/sysmon-modular
+-https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#events
+-https://github.com/swiftonsecurity/sysmon-config
+-https://www.iblue.team/incident-response-1/logging-powershell-activities
+-https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688
+-https://attack.mitre.org/datacomponents/DC0032/
 
 
 PREFETCH:
 -https://www.magnetforensics.com/blog/forensic-analysis-of-prefetch-files-in-windows/
 -https://www.inceptionsecurity.com/post/prefetch
+
+
+REJESTR:
+-https://www.cybertriage.com/blog/windows-registry-forensics-2026/
+-https://learn.microsoft.com/pl-pl/troubleshoot/windows-server/performance/windows-registry-advanced-users
 
 
 KAPE:
@@ -26,11 +36,23 @@ LOLDRIVERS:
 -https://github.com/magicsword-io/LOLDrivers
 
 
-APPLOCKER:
+WYJĄTKI/EXCLUSIONS:
+-https://cloudbrothers.info/en/guide-to-defender-exclusions/
+-https://support.huntress.io/hc/en-us/articles/4404005108371-Exclusions-for-Managed-Microsoft-Defender-Antivirus
+
+
+HARDENING - APPLOCKER:
 -https://www.youtube.com/watch?v=sLMuNcIqIcI
 -https://www.youtube.com/watch?v=582pdWRbhpw
 -https://www.youtube.com/watch?v=JtsgvOLhLJs
 
 
-WYJĄTKI/EXCLUSIONS:
--X
+HARDENING POZOSTALE:
+-https://github.com/0x6d69636b/windows_hardening
+-https://www.stigviewer.com/stigs/microsoft-windows-11-security-technical-implementation-guide
+-https://www.cisecurity.org/benchmark/microsoft_windows_desktop
+
+W kontekscie hardeningu systemow warto zaimplementowac:
+-whitelisting rozszerzen do przegladarki,
+-whitelisting rozszerzen do IDE np. Visual Studio,
+-lista dozwolonych aplikacji (im mniej tym lepiej).
