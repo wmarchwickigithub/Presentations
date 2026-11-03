@@ -17,6 +17,7 @@ Windows:
 Linux:
 - lost+found - https://www.baeldung.com/linux/lost-found-directory
 - /run/lock - https://askubuntu.com/questions/169495/what-are-run-lock-and-run-shm-used-for
+- Sysmon for Linux - https://github.com/microsoft/Sysmon-Linux
 
 
 
