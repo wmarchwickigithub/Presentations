@@ -1,1 +1,26 @@
+Windows:
+- Event ID 521 (logging error) - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=521
+- Event ID 1104 (logging error) - https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-1104
+- Sysmon ID 255 (logging error) - https://learn.microsoft.com/en-us/windows/security/operating-system-security/sysmon/sysmon-events#error-handling
+- Notepad - https://u0041.co/posts/articals/exploring-windows-artifacts-notepad-files/
+- Program Compatibility Assistant (PCA) - https://www.sygnia.co/blog/new-windows-11-pca-artifact/
+- ShowJumpView - HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\ShowJumpView
+- AppSwitched - HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppSwitched
+- AppBadgeUpdated - HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FeatureUsage\AppBadgeUpdated
+- RADAR - HKLM\Software\Microsoft\RADAR\HeapLeakDetection\DiagnosedApplications
+- Anydesk Artifacts - https://medium.com/@tylerbrozek/anydesk-forensics-anydesk-log-analysis-b77ea37b90f1
+- Teamviewer Artifacts - https://www.sciencedirect.com/science/article/abs/pii/S2666281724001653
+- WSL - https://learn.microsoft.com/pl-pl/windows/wsl/
 
+
+
+Linux:
+- lost+found - https://www.baeldung.com/linux/lost-found-directory
+- /run/lock - https://askubuntu.com/questions/169495/what-are-run-lock-and-run-shm-used-for
+
+
+
+macOS:
+- nscurl - https://nhimg.org/glossary/nscurl-macos-loobin/
+- dscl - https://loobins.io/binaries/dscl/
+- syspolicyd/gatekeeper - https://discussions.apple.com/thread/252137291?sortBy=rank
